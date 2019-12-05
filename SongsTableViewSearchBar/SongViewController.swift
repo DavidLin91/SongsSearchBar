@@ -33,6 +33,12 @@ class SongViewController: UIViewController {
         songs = Song.loveSongs
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let song = segue.destination as? SongsDetailedViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError()
+        }
+        song.songDetails = songs[indexPath.row]
+    }
 }
 
 extension SongViewController: UITableViewDataSource {

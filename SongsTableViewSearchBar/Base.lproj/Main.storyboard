@@ -93,14 +93,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME OF SONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tl-UF-XiQ">
-                                <rect key="frame" x="10" y="438" width="394" height="31.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <rect key="frame" x="10" y="438" width="394" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTIST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmT-VR-Dh2">
-                                <rect key="frame" x="10" y="479.5" width="394" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="10" y="469.5" width="394" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,6 +120,11 @@
                         <viewLayoutGuide key="safeArea" id="hDL-nJ-uUS"/>
                     </view>
                     <navigationItem key="navigationItem" id="sBt-eN-xPH"/>
+                    <connections>
+                        <outlet property="artistLabel" destination="LmT-VR-Dh2" id="P2c-O5-jwa"/>
+                        <outlet property="songNameLabel" destination="1Tl-UF-XiQ" id="eIR-IZ-2rs"/>
+                        <outlet property="stockImage" destination="3aS-ZT-biR" id="5vN-xB-AbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poW-Xw-ygO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

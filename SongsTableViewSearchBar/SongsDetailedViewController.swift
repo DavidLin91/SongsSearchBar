@@ -9,22 +9,16 @@
 import UIKit
 
 class SongsDetailedViewController: UIViewController {
-
+    var songDetails: Song!
+    
+    @IBOutlet weak var stockImage: UIImageView!
+    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        stockImage.image = UIImage(named: "loveSongs")
+        songNameLabel.text = songDetails.name
+        artistLabel.text = songDetails.artist
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
