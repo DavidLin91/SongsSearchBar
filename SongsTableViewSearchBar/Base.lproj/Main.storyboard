@@ -16,20 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-rx-ogg">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                            <searchBar contentMode="redraw" text="" placeholder="search by artist" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-rx-ogg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="103"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Song</string>
+                                    <string>Artist</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5zj-d0-ug6">
-                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="191" width="414" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songNameCell" id="bdm-M5-rLK">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songNameCell" textLabel="SxA-XQ-Dcl" detailTextLabel="wLU-si-lf1" style="IBUITableViewCellStyleSubtitle" id="bdm-M5-rLK">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bdm-M5-rLK" id="pfh-1y-uLI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SxA-XQ-Dcl">
+                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wLU-si-lf1">
+                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="avP-Wy-OJZ" kind="show" id="GKK-Oc-ewW"/>
@@ -42,11 +62,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="5zj-d0-ug6" secondAttribute="bottom" id="7rq-x6-bnT"/>
                             <constraint firstItem="5zj-d0-ug6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BKh-q8-3YP"/>
+                            <constraint firstItem="5zj-d0-ug6" firstAttribute="top" secondItem="gGW-rx-ogg" secondAttribute="bottom" id="CvT-iU-yOv"/>
                             <constraint firstItem="gGW-rx-ogg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ina-c4-G7V"/>
                             <constraint firstItem="gGW-rx-ogg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QTg-r9-74n"/>
                             <constraint firstItem="gGW-rx-ogg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VEv-Fb-cAq"/>
                             <constraint firstItem="5zj-d0-ug6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XWh-3A-Jdx"/>
-                            <constraint firstItem="5zj-d0-ug6" firstAttribute="top" secondItem="gGW-rx-ogg" secondAttribute="bottom" id="m7M-6Q-vdb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
