@@ -29,70 +29,71 @@ class SongViewController: UIViewController {
         didSet {
             switch currentScope {
             case .songName:
-                Song.loveSongs = 
-                
+                songs = Song.loveSongs.filter { $0.name.lowercased().contains(searchQuery.lowercased()) }
+            case .artistName :
+                songs = Song.loveSongs.filter { $0.name.lowercased().contains(searchQuery.lowercased()) }
             }
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        searchBar.delegate = self
-        loadData()
-    }
-    
-    func loadData() {
-        songs = Song.loveSongs
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let songDVC = segue.destination as? SongsDetailedViewController,
+            }
+            }
+            
+            override func viewDidLoad() {
+            super.viewDidLoad()
+            tableView.dataSource = self
+            searchBar.delegate = self
+            loadData()
+            }
+            
+            func loadData() {
+            songs = Song.loveSongs
+            }
+            
+            override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let songDVC = segue.destination as? SongsDetailedViewController,
             let indexPath = tableView.indexPathForSelectedRow else {
-                fatalError()
-        }
-        let song = songs[indexPath.row]
-        songDVC.songDetails = song
-    }
-}
-
-extension SongViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "songNameCell", for: indexPath)
-        let songName = songs[indexPath.row]
-        cell.textLabel?.text = songName.name
-        cell.detailTextLabel?.text = songName.artist
-        return cell
-    }
-}
-
-extension SongViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
+            fatalError()
+            }
+            let song = songs[indexPath.row]
+            songDVC.songDetails = song
+            }
+            }
+            
+            extension SongViewController: UITableViewDataSource {
+            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return songs.count
+            }
+            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "songNameCell", for: indexPath)
+            let songName = songs[indexPath.row]
+            cell.textLabel?.text = songName.name
+            cell.detailTextLabel?.text = songName.artist
+            return cell
+            }
+            }
+            
+            extension SongViewController: UISearchBarDelegate {
+            func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
+            }
+            
+            func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            guard !searchText.isEmpty else {
             loadData()
             return
-        }
-        searchQuery = searchText
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        print("selectedScope: \(selectedScope)")
-        switch selectedScope {
-        case 0:
+            }
+            searchQuery = searchText
+            }
+            
+            func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+            print("selectedScope: \(selectedScope)")
+            switch selectedScope {
+            case 0:
             currentScope = .songName
             break
-        case 1:
+            case 1:
             currentScope = .artistName
             break
-        default:
+            default:
             print("not a valid scope")
-        }
-    }
+            }
+            }
 }
